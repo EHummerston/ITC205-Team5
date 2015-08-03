@@ -1,67 +1,67 @@
 package datamanagement;
 
 public class StudentUnitRecord implements IStudentUnitRecord {
-	private Integer sid;
-	private String uc;
-	private float a1, a2, ex;
+	private Integer studentId_;
+	private String unitCode_;
+	private float assessment1_, assessment2_, exam_;
 
 	public StudentUnitRecord(Integer id, String code, float asg1, float asg2,
 			float exam) {
-		this.sid = id;
-		this.uc = code;
+		this.studentId_ = id;
+		this.unitCode_ = code;
 		this.setAsg1(asg1);
 		this.setAsg2(asg2);
 		this.setExam(exam);
 	}
 
 	public Integer getStudentID() {
-		return sid;
+		return studentId_;
 	}
 
 	public String getUnitCode() {
-		return uc;
+		return unitCode_;
 	}
 
 	public void setAsg1(float a1) {
 		if (a1 < 0 ||
-			a1 > UnitManager.UM().getUnit(uc).getAsg1Weight()) {
+			a1 > UnitManager.UM().getUnit(unitCode_).getAsg1Weight()) {
 			throw new RuntimeException("Mark cannot be less than zero or greater than assessment weight");
 		}
-		this.a1 = a1;
+		this.assessment1_ = a1;
 	}
 
 	public float getAsg1() {
 
-		return a1;
+		return assessment1_;
 	}
 
 	public void setAsg2(float a2) {
 		if (a2 < 0 ||
-			a2 > UnitManager.UM().getUnit(uc).getAsg2Weight()) {
+			a2 > UnitManager.UM().getUnit(unitCode_).getAsg2Weight()) {
 			throw new RuntimeException("Mark cannot be less than zero or greater than assessment weight");
 		}
-		this.a2 = a2;
+		this.assessment2_ = a2;
 
 	}
 
 	public float getAsg2() {
-		return a2;
+		return assessment2_;
 	}
 
 	public void setExam(float ex) {
 		if (ex < 0 ||
-				ex > UnitManager.UM().getUnit(uc).getExamWeight()) {
+				ex > UnitManager.UM().getUnit(unitCode_).getExamWeight()) {
 				throw new RuntimeException("Mark cannot be less than zero or greater than assessment weight");
 			}
-		this.ex = ex;
+		this.exam_ = ex;
 	}
 
 	public float getExam() {
-		return ex;
+		return exam_;
 	}
 
 	public float getTotal() {
-		return a1 + a2 + ex;
+		return assessment1_ + assessment2_ + exam_;
 
 	}
 }
