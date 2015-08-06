@@ -8,7 +8,7 @@ public interface IStudentUnitRecord {
     public void setAssignment1Mark(float mark);
     public float getAssignment1Mark();
 
-    public void setAssignemnt2Mark(float mark);
+    public void setAssignment2Mark(float mark);
     public float getAssignment2Mark();
 
     public void setExamMark(float mark);
