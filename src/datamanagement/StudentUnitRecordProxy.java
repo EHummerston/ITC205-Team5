@@ -10,17 +10,17 @@ this.mngr = StudentUnitRecordManager.instance();}
 public Integer getStudentID() { return studentID;}
 public String getUnitCode() { return unitCode; 
 }
-public void setAsg1(float mark) {
-mngr.getStudentUnitRecord( studentID, unitCode ).setAsg1(mark);}
-public float getAsg1() 
+public void setAssignment1Mark(float mark) {
+mngr.getStudentUnitRecord( studentID, unitCode ).setAssignment1Mark(mark);}
+public float getAssignment1Mark()
 {
-return mngr.getStudentUnitRecord( studentID, unitCode ).getAsg1();}
-public void setAsg2(float mark) { mngr.getStudentUnitRecord( studentID, unitCode ).setAsg2(mark);}
-public float getAsg2() {return mngr.getStudentUnitRecord( studentID, unitCode ).getAsg2();
+return mngr.getStudentUnitRecord( studentID, unitCode ).getAssignment1Mark();}
+public void setAssignemnt2Marks(float mark) { mngr.getStudentUnitRecord( studentID, unitCode ).setAssignemnt2Marks(mark);}
+public float getAssignment2Mark() {return mngr.getStudentUnitRecord( studentID, unitCode ).getAssignment2Mark();
 }
-public void setExam(float mark) {mngr.getStudentUnitRecord( studentID, unitCode ).setExam(mark);
+public void setExamMark(float mark) {mngr.getStudentUnitRecord( studentID, unitCode ).setExamMark(mark);
 }
-public float getExam() 
+public float getExamMark()
 {
-return mngr.getStudentUnitRecord( studentID, unitCode ).getExam();}
-public float getTotal() {return mngr.getStudentUnitRecord( studentID, unitCode ).getTotal();}}
+return mngr.getStudentUnitRecord( studentID, unitCode ).getExamMark();}
+public float getTotalMarks() {return mngr.getStudentUnitRecord( studentID, unitCode ).getTotalMarks();}}

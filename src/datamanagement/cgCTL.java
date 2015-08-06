@@ -89,9 +89,9 @@ public class cgCTL {
 		IStudent s = StudentManager.get().getStudent(currentStudentID);
 
 		IStudentUnitRecord r = s.getUnitRecord(cuc);
-		r.setAsg1(asg1);
-		r.setAsg2(asg2);
-		r.setExam(exam);
+		r.setAssignment1Mark(asg1);
+		r.setAssignemnt2Marks(asg2);
+		r.setExamMark(exam);
 		StudentUnitRecordManager.instance().saveRecord(r);
 		CGUI.setState4(true);
 		CGUI.setState5(false);
