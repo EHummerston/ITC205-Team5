@@ -5,10 +5,10 @@ public class Unit implements IUnit {
     private String unitCode_;
     private String unitName_;
     private float passCutOff_;
-    private float creditMark_;
-    private float distinctionCutOff__;
+    private float creditCutOff_;
+    private float distinctionCutOff_;
     private float highDistinctionCutOff_;
-    private float additionalExamCutOff__;
+    private float additionalExamCutOff_;
     private int assignment1Weight_, assignment2Weight_, examWeight_;
 
     private StudentUnitRecordList studentUnitRecordList_;
@@ -16,93 +16,79 @@ public class Unit implements IUnit {
     public Unit(String unitCode, String unitName, float passCutOff, float creditCutOff,
                 float distinctionCutOff, float highDistinctionCutOff,
                 float additionalExamCutOff, int assignment1Weight,
-                int asignment2Weight, int examWeight,
+                int assignment2Weight, int examWeight,
                 StudentUnitRecordList studentUnitRecordList) {
 
         this.unitCode_ = unitCode;
         this.unitName_ = unitName;
         this.passCutOff_ = passCutOff;
-        this.creditMark_ = creditCutOff;
-        this.distinctionCutOff__ = distinctionCutOff;
+        this.creditCutOff_ = creditCutOff;
+        this.distinctionCutOff_ = distinctionCutOff;
         this.highDistinctionCutOff_ = highDistinctionCutOff;
-        this.additionalExamCutOff__ = additionalExamCutOff;
-        this.setAssessmentWeights(assignment1Weight, asignment2Weight, examWeight);
+        this.additionalExamCutOff_ = additionalExamCutOff;
+        this.setAssessmentWeights(assignment1Weight, assignment2Weight, examWeight);
         studentUnitRecordList_ = studentUnitRecordList == null ? new StudentUnitRecordList() : studentUnitRecordList;
     }
 
-    public String getUnitCode()
-    {
+    public String getUnitCode() {
         return this.unitCode_;
     }
 
     public String getUnitName() {
-
         return this.unitName_;
     }
 
-
-    public void setPsCutoff1(float cutoff)
-    {
+    public void setPsCutoff1(float cutoff) {
         this.passCutOff_ = cutoff;
     }
 
-    public float getPsCutoff()
-    {
+    public float getPsCutoff() {
         return this.passCutOff_;
     }
 
-    public void setCrCutoff(float cutoff)
-    {
-        this.creditMark_ = cutoff;
+    public void setCrCutoff(float cutoff) {
+        this.creditCutOff_ = cutoff;
     }
 
-    public float getCrCutoff()
-    {
-        return this.creditMark_;
+    public float getCrCutoff() {
+        return this.creditCutOff_;
     }
 
     public void setDiCutoff(float cutoff) {
-
-        this.distinctionCutOff__ = cutoff;
+        this.distinctionCutOff_ = cutoff;
     }
 
-    public float getDiCuttoff()
-    {
-        return this.distinctionCutOff__;
+    public float getDiCuttoff() {
+        return this.distinctionCutOff_;
     }
 
-    public void HDCutoff(float cutoff)
-    {
+    public void HDCutoff(float cutoff) {
         this.highDistinctionCutOff_ = cutoff;
     }
 
-    public void setHdCutoff(float cutoff)
-    {
+    public void setHdCutoff(float cutoff) {
         this.highDistinctionCutOff_ = cutoff;
     }
 
     public float getHdCutoff() {
         return this.highDistinctionCutOff_;
-
     }
 
     public void setAeCutoff(float cutoff) {
-        this.additionalExamCutOff__ = cutoff;
+        this.additionalExamCutOff_ = cutoff;
     }
 
-    public float getAeCutoff()
-    {
-        return this.additionalExamCutOff__;
+    public float getAeCutoff() {
+        return this.additionalExamCutOff_;
     }
 
-    public void addStudentRecord(IStudentUnitRecord record)
-    {
+    public void addStudentRecord(IStudentUnitRecord record) {
         studentUnitRecordList_.add(record);
     }
 
     public IStudentUnitRecord getStudentRecord(int studentID) {
         for (IStudentUnitRecord r : studentUnitRecordList_) {
-            if (r.getStudentID() == studentID)
+            if (r.getStudentId() == studentID)
                 return r;
         }
         return null;
@@ -112,26 +98,19 @@ public class Unit implements IUnit {
         return studentUnitRecordList_;
     }
 
-    @Override
     public int getAsg1Weight() {
         return assignment1Weight_;
     }
 
-    @Override
-    public int getAsg2Weight()
-    {
+    public int getAsg2Weight() {
         return assignment2Weight_;
     }
 
-    @Override
-    public int getExamWeight()
-    {
+    public int getExamWeight() {
         return examWeight_;
     }
 
-    @Override
     public void setAssessmentWeights(int assignment1Weight, int assignment2Weight, int examWeight) {
-
         if (assignment1Weight < 0 || assignment1Weight > 100 ||
                 assignment2Weight < 0 || assignment2Weight > 100 ||
                 examWeight < 0 || examWeight > 100) {
@@ -180,13 +159,13 @@ public class Unit implements IUnit {
             throw new RuntimeException("marks cannot be less than zero or greater than assessment weights");
         }
 
-        if (totalMark < additionalExamCutOff__) {
+        if (totalMark < additionalExamCutOff_) {
             return "FL";
         } else if (totalMark < passCutOff_)
             return "AE";
-        else if (totalMark < creditMark_)
+        else if (totalMark < creditCutOff_)
             return "PS";
-        else if (totalMark < distinctionCutOff__)
+        else if (totalMark < distinctionCutOff_)
             return "CR";
         else if (totalMark < highDistinctionCutOff_)
             return "DI";

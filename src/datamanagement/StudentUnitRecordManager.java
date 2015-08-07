@@ -32,7 +32,7 @@ public class StudentUnitRecordManager {
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("studentUnitRecordTable").getChildren("record")) {
             if (uid.toString().equals(el.getAttributeValue("sid")) && sid.equals(el.getAttributeValue("uid"))) {
                 ir = new StudentUnitRecord(new Integer(el.getAttributeValue("sid")), el.getAttributeValue("uid"), new Float(el.getAttributeValue("asg1")).floatValue(), new Float(el.getAttributeValue("asg2")).floatValue(), new Float(el.getAttributeValue("exam")).floatValue());
-                rm.put(ir.getStudentID().toString() + ir.getUnitCode(), ir);
+                rm.put(ir.getStudentId().toString() + ir.getUnitCode(), ir);
                 return ir;
             }
         }
@@ -66,7 +66,7 @@ public class StudentUnitRecordManager {
 
     public void saveRecord(IStudentUnitRecord irec) {
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("studentUnitRecordTable").getChildren("record")) {
-            if (irec.getStudentID().toString().equals(el.getAttributeValue("sid")) && irec.getUnitCode().equals(el.getAttributeValue("uid"))) {
+            if (irec.getStudentId().toString().equals(el.getAttributeValue("sid")) && irec.getUnitCode().equals(el.getAttributeValue("uid"))) {
                 el.setAttribute("asg1", new Float(irec.getAssignment1Mark()).toString());
 
 

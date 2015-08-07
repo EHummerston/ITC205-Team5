@@ -9,7 +9,7 @@ public class UnitManager {
 
     private UnitMap unitMap_;
 
-    public static UnitManager UM() {
+    public static UnitManager createUnitManager() {
         if (self == null)
             self = new UnitManager();
         return self;
@@ -20,13 +20,12 @@ public class UnitManager {
     }
 
     public IUnit getUnit(String unitCode) {
-        IUnit iu = unitMap_.get(unitCode);
-        return iu != null ? iu : createUnit(unitCode);
+        IUnit unit = unitMap_.get(unitCode);
 
+        return unit != null ? unit : createUnit(unitCode);
     }
 
     private IUnit createUnit(String unitCode) {
-
         IUnit unit;
 
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("unitTable").getChildren("unit"))
@@ -55,14 +54,14 @@ public class UnitManager {
     public UnitMap getUnits() {
 
         UnitMap units;
-        IUnit iu;
+        IUnit unit;
 
         units = new UnitMap();
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("unitTable").getChildren("unit")) {
 
-            iu = new UnitProxy(el.getAttributeValue("uid"),
+            unit = new UnitProxy(el.getAttributeValue("uid"),
                     el.getAttributeValue("name"));
-            units.put(iu.getUnitCode(), iu);
+            units.put(unit.getUnitCode(), unit);
         } // unit maps are filled with PROXY units
 
         return units;

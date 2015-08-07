@@ -16,8 +16,6 @@ public class StudentProxy implements IStudent {
 
     public Integer getID() {
         return studentId_;
-
-
     }
 
     public String getFirstName() {
@@ -29,14 +27,10 @@ public class StudentProxy implements IStudent {
     }
 
     public void setFirstName(String firstName) {
-
-
         studentList.getStudent(studentId_).setFirstName(firstName);
     }
 
     public void setLastName(String lastName) {
-
-
         studentList.getStudent(studentId_).setLastName(lastName);
     }
 
@@ -46,8 +40,6 @@ public class StudentProxy implements IStudent {
     }
 
     public IStudentUnitRecord getUnitRecord(String unitCode) {
-
-
         return studentList.getStudent(studentId_).getUnitRecord(unitCode);
     }
 

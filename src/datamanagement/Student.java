@@ -18,31 +18,23 @@ public class Student implements IStudent {
         return this.studentId_;
     }
 
-    // First Name
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return studentFirstName_;
     }
 
     public void setFirstName(String firstName) {
-
         this.studentFirstName_ = firstName;
     }
 
-
-    // Last Name
-    public String getLastName()
-    {
+    public String getLastName() {
         return studentLastName_;
     }
 
-    public void setLastName(String lastName)
-    {
+    public void setLastName(String lastName) {
         this.studentLastName_ = lastName;
     }
 
-    public void addUnitRecord(IStudentUnitRecord record)
-    {
+    public void addUnitRecord(IStudentUnitRecord record) {
         studentRecordList_.add(record);
     }
 
@@ -55,8 +47,7 @@ public class Student implements IStudent {
         return null;
     }
 
-    public StudentUnitRecordList getUnitRecords()
-    {
+    public StudentUnitRecordList getUnitRecords() {
         return studentRecordList_;
     }
 }
