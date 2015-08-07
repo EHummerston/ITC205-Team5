@@ -1,10 +1,20 @@
 package datamanagement;
-public class ListUnitsCTL {
-    private UnitManager um;
-public ListUnitsCTL() {
-        um = UnitManager.initializeUnitManager();
+public class ListUnitsCTL
+{
+  private UnitManager unitManager_;
+  
+  public ListUnitsCTL()
+  {
+    unitManager_ = UnitManager.UM();
+  }
+
+  
+  
+  public void listUnits( IUnitLister unitLister )
+  {
+    unitLister.clearUnits();
+    UnitMap units = unitManager_.getUnits();
+    for ( String s : units.keySet() )
+      unitLister.addUnit(units.get(s));
+  }
 }
-            public void listUnits( IUnitLister lister ) {
-lister.clearUnits();UnitMap units = um.getUnits();
-        for (String s : units.keySet() )
-            lister.addUnit(units.get(s));}}
