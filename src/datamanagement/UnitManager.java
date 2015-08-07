@@ -46,7 +46,7 @@ public class UnitManager {
   private IUnit createUnit(String unitCode) {
     IUnit unit;
 
-    for (Element el : (List<Element>) XMLManager.getXML().getDocument()
+    for (Element el : (List<Element>) XmlManager.getXML().getDocument()
             .getRootElement().getChild("unitTable").getChildren("unit"))
       if (unitCode.equals(el.getAttributeValue("uid"))) {
         StudentUnitRecordList studentUnitRecordList;
@@ -81,7 +81,7 @@ public class UnitManager {
     IUnit unit;
 
     units = new UnitMap();
-    for (Element el : (List<Element>) XMLManager.getXML().getDocument()
+    for (Element el : (List<Element>) XmlManager.getXML().getDocument()
             .getRootElement().getChild("unitTable").getChildren("unit")) {
 
       unit = new UnitProxy(el.getAttributeValue("uid"),

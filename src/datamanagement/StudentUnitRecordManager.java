@@ -45,7 +45,7 @@ public class StudentUnitRecordManager {
   private IStudentUnitRecord createStudentUnitRecord(Integer studentCode,
                                                      String unitCode) {
     IStudentUnitRecord studentUnitRecord;
-    for (Element el : (List<Element>) XMLManager.getXML().getDocument()
+    for (Element el : (List<Element>) XmlManager.getXML().getDocument()
             .getRootElement().getChild("studentUnitRecordTable")
             .getChildren("record")) {
       if (studentCode.toString().equals(el.getAttributeValue("sid")) &&
@@ -131,7 +131,7 @@ public class StudentUnitRecordManager {
         el.setAttribute("exam", new Float(
                 StudentUnitRecord.getExamMark()).toString());
         //write out the XML file for continuous save
-        XMLManager.getXML().saveDocument();
+        XmlManager.getXML().saveDocument();
         return;
       }
     }

@@ -8,14 +8,14 @@ import org.jdom.output.XMLOutputter;
 import java.io.IOException;
 import org.jdom.JDOMException;
 
-public class XMLManager {
-private static XMLManager self = null;
+public class XmlManager {
+private static XmlManager self = null;
 
 
         private Document doc;
-        public static XMLManager getXML() { if (self == null ) self = new XMLManager(); return self;
+        public static XmlManager getXML() { if (self == null ) self = new XmlManager(); return self;
 }
-    private XMLManager() {init();
+    private XmlManager() {init();
 
     
     
