@@ -10,7 +10,7 @@ public class StudentUnitRecord implements IStudentUnitRecord {
 		this.sid = id;
 		this.uc = code;
 		this.setAssignment1Mark(asg1);
-		this.setAssignemnt2Marks(asg2);
+		this.setAssignment2Mark(asg2);
 		this.setExamMark(exam);
 	}
 
@@ -35,7 +35,7 @@ public class StudentUnitRecord implements IStudentUnitRecord {
 		return a1;
 	}
 
-	public void setAssignemnt2Marks(float a2) {
+	public void setAssignment2Mark(float a2) {
 		if (a2 < 0 ||
 			a2 > UnitManager.UM().getUnit(uc).getAsg2Weight()) {
 			throw new RuntimeException("Mark cannot be less than zero or greater than assessment weight");

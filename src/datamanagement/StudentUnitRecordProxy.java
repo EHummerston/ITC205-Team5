@@ -15,7 +15,7 @@ mngr.getStudentUnitRecord( studentID, unitCode ).setAssignment1Mark(mark);}
 public float getAssignment1Mark()
 {
 return mngr.getStudentUnitRecord( studentID, unitCode ).getAssignment1Mark();}
-public void setAssignemnt2Marks(float mark) { mngr.getStudentUnitRecord( studentID, unitCode ).setAssignemnt2Marks(mark);}
+public void setAssignment2Mark(float mark) { mngr.getStudentUnitRecord( studentID, unitCode ).setAssignment2Mark(mark);}
 public float getAssignment2Mark() {return mngr.getStudentUnitRecord( studentID, unitCode ).getAssignment2Mark();
 }
 public void setExamMark(float mark) {mngr.getStudentUnitRecord( studentID, unitCode ).setExamMark(mark);

@@ -90,7 +90,7 @@ public class cgCTL {
 
 		IStudentUnitRecord r = s.getUnitRecord(cuc);
 		r.setAssignment1Mark(asg1);
-		r.setAssignemnt2Marks(asg2);
+		r.setAssignment2Mark(asg2);
 		r.setExamMark(exam);
 		StudentUnitRecordManager.instance().saveRecord(r);
 		CGUI.setState4(true);
