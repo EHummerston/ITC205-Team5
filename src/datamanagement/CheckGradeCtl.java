@@ -2,7 +2,7 @@ package datamanagement;
 
 public class CheckGradeCtl {
 
-	cgUI CGUI;
+	CheckGradeUi CGUI;
 	String cuc = null;
 	Integer currentStudentID = null;
 	boolean changed = false;
@@ -11,7 +11,7 @@ public class CheckGradeCtl {
 	}
 
 	public void execute() {
-		CGUI = new cgUI(this);
+		CGUI = new CheckGradeUi(this);
 		CGUI.setState1(false);
 
 		CGUI.setState2(false);
