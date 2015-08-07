@@ -32,7 +32,7 @@ public class cgCTL {
 		if (code.equals("NONE"))
 			CGUI.setState2(false);
 		else {
-			ListStudentsCTL lsCTL = new ListStudentsCTL();
+			ListStudentsCtl lsCTL = new ListStudentsCtl();
 			lsCTL.listStudents(CGUI, code);
 			cuc = code;
 			CGUI.setState2(true);

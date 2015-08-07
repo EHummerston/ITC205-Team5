@@ -1,9 +1,9 @@
 package datamanagement;
 
-public class ListStudentsCTL {
+public class ListStudentsCtl {
     private StudentManager studentManager;
 
-    public ListStudentsCTL() {
+    public ListStudentsCtl() {
         studentManager = StudentManager.get();
     }
 
