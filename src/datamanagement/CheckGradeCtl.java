@@ -1,13 +1,13 @@
 package datamanagement;
 
-public class cgCTL {
+public class CheckGradeCtl {
 
 	cgUI CGUI;
 	String cuc = null;
 	Integer currentStudentID = null;
 	boolean changed = false;
 
-	public cgCTL() {
+	public CheckGradeCtl() {
 	}
 
 	public void execute() {
