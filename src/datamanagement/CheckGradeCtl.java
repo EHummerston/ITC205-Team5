@@ -21,7 +21,7 @@ public class CheckGradeCtl {
 		CGUI.setState6(false);
 		CGUI.Refresh3();
 
-		ListUnitsCTL luCTL = new ListUnitsCTL();
+		ListUnitsCtl luCTL = new ListUnitsCtl();
 		luCTL.listUnits(CGUI);
 		CGUI.setVisible(true);
 		CGUI.setState1(true);
