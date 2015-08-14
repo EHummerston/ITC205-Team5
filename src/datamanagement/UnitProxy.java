@@ -60,8 +60,8 @@ public class UnitProxy implements IUnit {
 		return unitManager.getUnit(unitCode_).getAeCutoff();
 	}
 	
-	public String getGrade(float f1, float f2, float f3) {
-		return unitManager.getUnit(unitCode_).getGrade(f1, f2, f3);
+	public String getGrade(float asg1, float asg2, float exam) {
+		return unitManager.getUnit(unitCode_).getGrade(asg1, asg2, exam);
 	}
 	
 	public void addStudentRecord(IStudentUnitRecord record) { 
@@ -88,8 +88,8 @@ public class UnitProxy implements IUnit {
 		return unitManager.getUnit(unitCode_).getExamWeight();
 	}
 	
-	public void setAssessmentWeights(int asg1Wgt, int asg2Wgt, int examWgt) {
-		unitManager.getUnit(unitCode_).setAssessmentWeights(asg1Wgt, asg2Wgt, examWgt);
+	public void setAssessmentWeights(int asg1, int asg2, int exam) {
+		unitManager.getUnit(unitCode_).setAssessmentWeights(asg1, asg2, exam);
 	}
 
 }
