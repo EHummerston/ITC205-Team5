@@ -3,10 +3,10 @@ package datamanagement;
 public class CheckGradeCtl
 {
 
-  CheckGradeUi CGUI;
-  String       cuc              = null;
-  Integer      currentStudentID = null;
-  boolean      changed          = false;
+  private CheckGradeUi CGUI;
+  private String       cuc              = null;
+  private Integer      currentStudentID = null;
+  private boolean      changed          = false;
 
 
 

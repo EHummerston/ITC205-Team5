@@ -13,24 +13,22 @@ public class CheckGradeUi
   extends javax.swing.JFrame
   implements IUnitLister, IStudentLister
 {
-  private CheckGradeCtl                    ctl;
-  private javax.swing.DefaultComboBoxModel uM;
-  private javax.swing.DefaultComboBoxModel rM;
-  float                                    f1;
-  float                                    f2;
-  float                                    f3;
-  Integer                                  sid;
+  private CheckGradeCtl                    ctl_;
+  private javax.swing.DefaultComboBoxModel unitComboBoxModel_;
+  private javax.swing.DefaultComboBoxModel studentComboBoxModel_;
+  private float                            mark1_, mark2_, mark3_;
+  private Integer                          studentId_;
 
 
 
   public CheckGradeUi(CheckGradeCtl ctl)
   {
-    this.ctl = ctl;
-    uM = new javax.swing.DefaultComboBoxModel(new String[0]);
-    rM = new javax.swing.DefaultComboBoxModel(new String[0]);
+    this.ctl_ = ctl;
+    unitComboBoxModel_ = new javax.swing.DefaultComboBoxModel(new String[0]);
+    studentComboBoxModel_ = new javax.swing.DefaultComboBoxModel(new String[0]);
     initComponents();
-    jComboBox1.setModel(uM);
-    jComboBox2.setModel(rM);
+    jComboBox1.setModel(unitComboBoxModel_);
+    jComboBox2.setModel(studentComboBoxModel_);
     jlabel6.setText("");
   }
 
@@ -69,7 +67,7 @@ public class CheckGradeUi
 
     jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Unit"));
 
-    jComboBox1.setModel(uM);
+    jComboBox1.setModel(unitComboBoxModel_);
     jComboBox1.addItemListener(new java.awt.event.ItemListener()
     {
       public void itemStateChanged(java.awt.event.ItemEvent evt)
@@ -103,7 +101,7 @@ public class CheckGradeUi
 
     jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Student"));
 
-    jComboBox2.setModel(rM);
+    jComboBox2.setModel(studentComboBoxModel_);
     jComboBox2.addItemListener(new java.awt.event.ItemListener()
     {
       public void itemStateChanged(java.awt.event.ItemEvent evt)
@@ -376,7 +374,7 @@ public class CheckGradeUi
       if (cU.equals((String) jComboBox1.getItemAt(0))) {
         cU = "NONE";
       }
-      ctl.unitSelected(cU);
+      ctl_.unitSelected(cU);
     }
   }// GEN-LAST:event_jComboBox1ItemStateChanged
 
@@ -388,12 +386,12 @@ public class CheckGradeUi
     String cS = (String) jComboBox2.getSelectedItem();
     if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
       if (cS.equals((String) jComboBox2.getItemAt(0))) {
-        sid = new Integer(0);
-        ctl.studentSelected(sid);
+        studentId_ = new Integer(0);
+        ctl_.studentSelected(studentId_);
       } else {
-        sid = new Integer(cS.split("\\s")[0]);
+        studentId_ = new Integer(cS.split("\\s")[0]);
       }
-      ctl.studentSelected(sid);
+      ctl_.studentSelected(studentId_);
     }
   }// GEN-LAST:event_jComboBox2ItemStateChanged
 
@@ -401,12 +399,12 @@ public class CheckGradeUi
 
   private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)
   {// GEN-FIRST:event_jButton3ActionPerformed
-    f1 = new Float(jTextField1.getText()).floatValue();
-    f2 = new Float(jTextField2.getText()).floatValue();
-    f3 = new Float(jTextField3.getText()).floatValue();
+    mark1_ = new Float(jTextField1.getText()).floatValue();
+    mark2_ = new Float(jTextField2.getText()).floatValue();
+    mark3_ = new Float(jTextField3.getText()).floatValue();
     // lblErrMsg.setText("");
     try {
-      String s = ctl.checkGrade(f1, f2, f3);
+      String s = ctl_.checkGrade(mark1_, mark2_, mark3_);
       jLabel5.setText(s);
     } catch (RuntimeException re) {
       jlabel6.setText(re.getMessage());
@@ -417,7 +415,7 @@ public class CheckGradeUi
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
   {// GEN-FIRST:event_jButton1ActionPerformed
-    ctl.enableChangeMarks();
+    ctl_.enableChangeMarks();
     jLabel5.setText("");
     // lblErrMsg.setText("");
   }// GEN-LAST:event_jButton1ActionPerformed
@@ -439,7 +437,7 @@ public class CheckGradeUi
     float exam = new Float(jTextField3.getText()).floatValue();
     jlabel6.setText("");
     try {
-      ctl.saveGrade(asg1, asg2, exam);
+      ctl_.saveGrade(asg1, asg2, exam);
       // jButton3ActionPerformed(null);
     } catch (RuntimeException re) {
       jlabel6.setText(re.getMessage());
@@ -450,8 +448,8 @@ public class CheckGradeUi
 
   public void clearUnits()
   {
-    uM.removeAllElements();
-    uM.addElement("<none selected>");
+    unitComboBoxModel_.removeAllElements();
+    unitComboBoxModel_.addElement("<none selected>");
     clearStudents();
   }
 
@@ -459,7 +457,7 @@ public class CheckGradeUi
 
   public void addUnit(IUnit u)
   {
-    uM.addElement(u.getUnitCode());
+    unitComboBoxModel_.addElement(u.getUnitCode());
   }
 
 
@@ -474,16 +472,16 @@ public class CheckGradeUi
 
   public void clearStudents()
   {
-    rM.removeAllElements();
-    rM.addElement("<none selected>");
+    studentComboBoxModel_.removeAllElements();
+    studentComboBoxModel_.addElement("<none selected>");
   }
 
 
 
   public void addStudent(IStudent student)
   {
-    rM.addElement(student.getID().toString() + " : " + student.getFirstName()
-      + " " + student.getLastName());
+    studentComboBoxModel_.addElement(student.getID().toString() + " : "
+      + student.getFirstName() + " " + student.getLastName());
   }
 
 

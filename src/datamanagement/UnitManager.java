@@ -6,7 +6,7 @@ import org.jdom.Element;
 
 public class UnitManager {
 
-  private static UnitManager self = null;
+	private static UnitManager self = null;
 
   private UnitMap unitMap_;
 
@@ -16,14 +16,14 @@ public class UnitManager {
    * @return an initialised unit manager
    */
   public static UnitManager initializeUnitManager() {
-    if (self == null)
-      self = new UnitManager();
-    return self;
-  }
+		if (self == null)
+			self = new UnitManager();
+		return self;
+	}
 
-  private UnitManager() {
+	private UnitManager() {
     unitMap_ = new UnitMap();
-  }
+	}
 
   /**
    * Checks the unit map for a Unit with the unit Code specified
@@ -35,7 +35,7 @@ public class UnitManager {
     IUnit unit = unitMap_.get(unitCode);
 
     return unit != null ? unit : createUnit(unitCode);
-  }
+	}
 
 
   /**
@@ -43,12 +43,12 @@ public class UnitManager {
    *  @param unitCode the unique code for the unit e.g. ITC209
    *  @return a unit object contain all it's data ready for manipulation in code
    */
-  private IUnit createUnit(String unitCode) {
+	private IUnit createUnit(String unitCode) {
     IUnit unit;
 
-    for (Element el : (List<Element>) XmlManager.getXML().getDocument()
-            .getRootElement().getChild("unitTable").getChildren("unit"))
-      if (unitCode.equals(el.getAttributeValue("uid"))) {
+		for (Element el : (List<Element>) XmlManager.getXmlManager().getDocument()
+				.getRootElement().getChild("unitTable").getChildren("unit"))
+			if (unitCode.equals(el.getAttributeValue("uid"))) {
         StudentUnitRecordList studentUnitRecordList;
         studentUnitRecordList = null;
         unit = new Unit(el.getAttributeValue("uid"),
@@ -65,31 +65,31 @@ public class UnitManager {
 
         unitMap_.put(unit.getUnitCode(), unit);
         return unit;
-      }
+			}
 
-    throw new RuntimeException("DBMD: createUnit : unit not in file");
-  }
+		throw new RuntimeException("DBMD: createUnit : unit not in file");
+	}
 
   /**
    * creates a hashmap of units by retrieving values from an XML file.
    *
    * @return  a hashmap of unit Objects for use elswere
    */
-  public UnitMap getUnits() {
+	public UnitMap getUnits() {
 
     UnitMap units;
     IUnit unit;
 
     units = new UnitMap();
-    for (Element el : (List<Element>) XmlManager.getXML().getDocument()
-            .getRootElement().getChild("unitTable").getChildren("unit")) {
+		for (Element el : (List<Element>) XmlManager.getXmlManager().getDocument()
+				.getRootElement().getChild("unitTable").getChildren("unit")) {
 
       unit = new UnitProxy(el.getAttributeValue("uid"),
-              el.getAttributeValue("name"));
+					el.getAttributeValue("name"));
       units.put(unit.getUnitCode(), unit);
-    } // unit maps are filled with PROXY units
+		} // unit maps are filled with PROXY units
 
     return units;
-  }
+	}
 
 }

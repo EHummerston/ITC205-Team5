@@ -12,11 +12,11 @@ public class XmlManager
 {
   private static XmlManager self = null;
 
-  private Document          doc;
+  private Document          document_;
 
 
 
-  public static XmlManager getXML()
+  public static XmlManager getXmlManager()
   {
     if (self == null)
       self = new XmlManager();
@@ -40,7 +40,7 @@ public class XmlManager
     try {
       SAXBuilder b = new SAXBuilder();
       b.setExpandEntities(true);
-      doc = b.build(s);
+      document_ = b.build(s);
     }
 
     catch (JDOMException e) {
@@ -58,7 +58,7 @@ public class XmlManager
 
   public Document getDocument()
   {
-    return doc;
+    return document_;
   }
 
 
@@ -69,7 +69,7 @@ public class XmlManager
       .getProperty("XMLFILE");
     try (FileWriter fout = new FileWriter(xmlfile)) {
       XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
-      outputter.output(doc, fout);
+      outputter.output(document_, fout);
       fout.close();
     } catch (IOException ioe) {
       System.err.printf("%s\n",
