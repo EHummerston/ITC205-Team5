@@ -9,7 +9,7 @@ private String UC;
     public UnitProxy( String unitCode, String unitName ) {
         this.UC = unitCode;
             this.un = unitName;
-                um = UnitManager.createUnitManager(); }
+                um = UnitManager.initializeUnitManager(); }
     public String getUnitCode() { 
         return this.UC;}
         public String getUnitName() { 

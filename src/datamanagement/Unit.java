@@ -13,6 +13,9 @@ public class Unit implements IUnit {
 
   private StudentUnitRecordList studentUnitRecordList_;
 
+  /**
+   * Sets all Grade Cut off points and assessment Weights upon initialization
+   */
   public Unit(String unitCode, String unitName, float passCutOff, float creditCutOff,
               float distinctionCutOff, float highDistinctionCutOff,
               float additionalExamCutOff, int assignment1Weight,
@@ -106,6 +109,10 @@ public class Unit implements IUnit {
     return examWeight_;
   }
 
+  /**
+   * Sets the weights of each assessment task(i.e. how much of the final grade the assessment tasks will be)
+   * unlike methods for individual assessment task weights the values are validated
+   */
   public void setAssessmentWeights(int assignment1Weight, int assignment2Weight, int examWeight) {
     if (assignment1Weight < 0 || assignment1Weight > 100 ||
             assignment2Weight < 0 || assignment2Weight > 100 ||
@@ -122,6 +129,12 @@ public class Unit implements IUnit {
     this.examWeight_ = examWeight;
   }
 
+  /**
+   * Sets all cut Off values for each grade that the unit has,
+   * unlike other methods the values are validated to ensure accuracy
+   *
+   * Currently Unimplemented!!!
+   */
   private void setCutoffs(float passCutOff, float creditCutoff, float distinctionCutoff,
                           float highDistinctionCutOff, float additionalExamCutOff) {
     if (passCutOff < 0 || passCutOff > 100 ||
@@ -147,7 +160,15 @@ public class Unit implements IUnit {
 
   }
 
+  /**
+   * checks that each assessment task has a valid result and returns a grade based on the combined value of all assessment tasks
+   * @param assignment1Mark The students mark for the first Assignment
+   * @param assignment2Mark The students mark for the second Assignment
+   * @param examMark The students final exam results
+   * @return A string containing the level of mark the student achieved, e.g. "HD" for a high distinction
+   */
   public String getGrade(float assignment1Mark, float assignment2Mark, float examMark) {
+
     float totalMark = assignment1Mark + assignment2Mark + examMark;
 
     if (assignment1Mark < 0 || assignment1Mark > assignment1Weight_ ||

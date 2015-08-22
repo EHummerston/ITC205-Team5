@@ -6,6 +6,13 @@ public class Student implements IStudent {
   private String studentLastName_;
   private StudentUnitRecordList studentRecordList_;
 
+  /**
+   * Initializes a student object with all important data being set.
+   * @param studentId The unique ID of the student
+   * @param firstName The students first name
+   * @param lastName The students second name
+   * @param studentRecord the student record associate with the individual student
+   */
   public Student(Integer studentId, String firstName, String lastName, StudentUnitRecordList studentRecord) {
     this.studentId_ = studentId;
     this.studentFirstName_ = firstName;
