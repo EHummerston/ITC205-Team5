@@ -3,13 +3,13 @@ package datamanagement;
 
 /**
  * Lists units
- * @author Norb
+ * @editor Norb
  *
  */
 
 public interface IUnitLister {
 
     public void clearUnits();
-    public void addUnit(IUnit iUnit);
+    public void addUnit(IUnit unit);
 
 }
