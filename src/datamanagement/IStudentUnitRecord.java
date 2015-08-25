@@ -5,14 +5,14 @@ public interface IStudentUnitRecord {
     public Integer getStudentID();
     public String getUnitCode();
 
-    public void setAssignment1(float mark);
-    public float getAssignment1();
+    public void setAssignment1Mark(float mark);
+    public float getAssignment1Mark();
 
-    public void setAssignment2(float mark);
-    public float getAssignment2();
+    public void setAssignment2Mark(float mark);
+    public float getAssignment2Mark();
 
-    public void setExam(float mark);
-    public float getExam();
+    public void setExamMark(float mark);
+    public float getExamMark();
 
-    public float getTotal();
+    public float getTotalMarks();
 }

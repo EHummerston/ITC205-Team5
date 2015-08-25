@@ -1,17 +1,17 @@
 package datamanagement;
 
-public class CheckGradeCTL {
+public class cgCTL {
 
-	CheckGradeUI CGUI;
+	cgUI CGUI;
 	String cuc = null;
 	Integer currentStudentID = null;
 	boolean changed = false;
 
-	public CheckGradeCTL() {
+	public cgCTL() {
 	}
 
 	public void execute() {
-		CGUI = new CheckGradeUI(this);
+		CGUI = new cgUI(this);
 		CGUI.setState1(false);
 
 		CGUI.setState2(false);
@@ -66,7 +66,7 @@ public class CheckGradeCTL {
 	}
 
 	public String checkGrade(float f, float g, float h) {
-		IUnit u = UnitManager.initializeUnitManager().getUnit(cuc);
+		IUnit u = UnitManager.UM().getUnit(cuc);
 		String s = u.getGrade(f, g, h);
 		CGUI.setState4(true);
 		CGUI.setState5(false);
@@ -85,12 +85,12 @@ public class CheckGradeCTL {
 
 	public void saveGrade(float asg1, float asg2, float exam) {
 
-		IUnit u = UnitManager.initializeUnitManager().getUnit(cuc);
+		IUnit u = UnitManager.UM().getUnit(cuc);
 		IStudent s = StudentManager.get().getStudent(currentStudentID);
 
 		IStudentUnitRecord r = s.getUnitRecord(cuc);
-		r.setAssignment1(asg1);
-		r.setAssignment2(asg2);
+		r.setAsg1(asg1);
+		r.setAsg2(asg2);
 		r.setExam(exam);
 		StudentUnitRecordManager.instance().saveRecord(r);
 		CGUI.setState4(true);

@@ -8,9 +8,9 @@ import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class CheckGradeUI extends javax.swing.JFrame implements IUnitLister,
+public class cgUI extends javax.swing.JFrame implements IUnitLister,
 		IStudentLister {
-	private CheckGradeCTL ctl;
+	private cgCTL ctl;
 	private javax.swing.DefaultComboBoxModel uM;
 	private javax.swing.DefaultComboBoxModel rM;
 	float f1;
@@ -18,7 +18,7 @@ public class CheckGradeUI extends javax.swing.JFrame implements IUnitLister,
 	float f3;
 	Integer sid;
 
-	public CheckGradeUI(CheckGradeCTL ctl) {
+	public cgUI(cgCTL ctl) {
 		this.ctl = ctl;
 		uM = new javax.swing.DefaultComboBoxModel(new String[0]);
 		rM = new javax.swing.DefaultComboBoxModel(new String[0]);
@@ -396,8 +396,8 @@ public class CheckGradeUI extends javax.swing.JFrame implements IUnitLister,
 	}
 
 	public void setRecord(IStudentUnitRecord record) {
-		jTextField1.setText(new Float(record.getAssignment1()).toString());
-		jTextField2.setText(new Float(record.getAssignment2()).toString());
+		jTextField1.setText(new Float(record.getAsg1()).toString());
+		jTextField2.setText(new Float(record.getAsg2()).toString());
 		jTextField3.setText(new Float(record.getExam()).toString());
 		jLabel5.setText("");
 	}

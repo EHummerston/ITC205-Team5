@@ -9,7 +9,7 @@ public class UnitManager {
 
 	private UnitMap UM;
 
-	public static UnitManager initializeUnitManager() {
+	public static UnitManager UM() {
 		if (self == null)
 			self = new UnitManager();
 		return self;
@@ -29,7 +29,7 @@ public class UnitManager {
 
 		IUnit iu;
 
-		for (Element el : (List<Element>) XMLManager.getXMLManager().getDocument()
+		for (Element el : (List<Element>) XMLManager.getXML().getDocument()
 				.getRootElement().getChild("unitTable").getChildren("unit"))
 			if (unitCode.equals(el.getAttributeValue("uid"))) {
 				StudentUnitRecordList slist;
@@ -63,7 +63,7 @@ public class UnitManager {
 		IUnit iu;
 
 		uM = new UnitMap();
-		for (Element el : (List<Element>) XMLManager.getXMLManager().getDocument()
+		for (Element el : (List<Element>) XMLManager.getXML().getDocument()
 				.getRootElement().getChild("unitTable").getChildren("unit")) {
 			iu = new UnitProxy(el.getAttributeValue("uid"),
 					el.getAttributeValue("name"));
@@ -71,6 +71,5 @@ public class UnitManager {
 		} // unit maps are filled with PROXY units
 		return uM;
 	}
-
 
 }

@@ -3,7 +3,8 @@ package datamanagement;
 
 /**
  * Lists units
- * @editor Norb
+ * @author jtulip
+ * @editor Norb C.T.
  *
  */
 
