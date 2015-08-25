@@ -1,6 +1,7 @@
 package datamanagement;
 
-public class Student implements IStudent {
+public class Student
+        implements IStudent {
   private Integer studentId_;
   private String studentFirstName_;
   private String studentLastName_;

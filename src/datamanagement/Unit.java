@@ -1,6 +1,7 @@
 package datamanagement;
 
-public class Unit implements IUnit {
+public class Unit
+        implements IUnit {
 
   private String unitCode_;
   private String unitName_;
