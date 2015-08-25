@@ -17,10 +17,15 @@ public class Unit
   /**
    * Sets all Grade Cut off points and assessment Weights upon initialization
    */
-  public Unit(String unitCode, String unitName, float passCutOff, float creditCutOff,
-              float distinctionCutOff, float highDistinctionCutOff,
-              float additionalExamCutOff, int assignment1Weight,
-              int assignment2Weight, int examWeight,
+  public Unit(String unitCode, String unitName,
+              float passCutOff,
+              float creditCutOff,
+              float distinctionCutOff,
+              float highDistinctionCutOff,
+              float additionalExamCutOff,
+              int assignment1Weight,
+              int assignment2Weight,
+              int examWeight,
               StudentUnitRecordList studentUnitRecordList) {
 
     this.unitCode_ = unitCode;
@@ -31,7 +36,8 @@ public class Unit
     this.highDistinctionCutOff_ = highDistinctionCutOff;
     this.additionalExamCutOff_ = additionalExamCutOff;
     this.setAssessmentWeights(assignment1Weight, assignment2Weight, examWeight);
-    studentUnitRecordList_ = studentUnitRecordList == null ? new StudentUnitRecordList() : studentUnitRecordList;
+    studentUnitRecordList_ = studentUnitRecordList ==
+            null ? new StudentUnitRecordList() : studentUnitRecordList;
   }
 
   public String getUnitCode() {
@@ -111,14 +117,19 @@ public class Unit
   }
 
   /**
-   * Sets the weights of each assessment task(i.e. how much of the final grade the assessment tasks will be)
-   * unlike methods for individual assessment task weights the values are validated
+   * Sets the weights of each assessment task
+   * (i.e. how much of the final grade the assessment tasks will be)
+   * unlike methods for individual assessment task
+   * weights the values are validated
    */
-  public void setAssessmentWeights(int assignment1Weight, int assignment2Weight, int examWeight) {
+  public void setAssessmentWeights(int assignment1Weight,
+                                   int assignment2Weight,
+                                   int examWeight) {
     if (assignment1Weight < 0 || assignment1Weight > 100 ||
             assignment2Weight < 0 || assignment2Weight > 100 ||
             examWeight < 0 || examWeight > 100) {
-      throw new RuntimeException("Assessment weights cant be less than zero or greater than 100");
+      throw new RuntimeException(
+              "Assessment weights cant be less than zero or greater than 100");
     }
 
     if (assignment1Weight + assignment2Weight + examWeight != 100) {
@@ -136,46 +147,60 @@ public class Unit
    *
    * Currently Unimplemented!!!
    */
-  private void setCutoffs(float passCutOff, float creditCutoff, float distinctionCutoff,
-                          float highDistinctionCutOff, float additionalExamCutOff) {
+  private void setCutoffs(float passCutOff,
+                          float creditCutoff,
+                          float distinctionCutoff,
+                          float highDistinctionCutOff,
+                          float additionalExamCutOff) {
     if (passCutOff < 0 || passCutOff > 100 ||
             creditCutoff < 0 || creditCutoff > 100 ||
             distinctionCutoff < 0 || distinctionCutoff > 100 ||
             highDistinctionCutOff < 0 || highDistinctionCutOff > 100 ||
             additionalExamCutOff < 0 || additionalExamCutOff > 100) {
-      throw new RuntimeException("Assessment cutoff cant be less than zero or greater than 100");
+      throw new RuntimeException(
+              "Assessment cutoff cant be less than zero or greater than 100");
     }
 
     if (additionalExamCutOff >= passCutOff) {
-      throw new RuntimeException("Additional exam cutoff must be less than pass cutoff");
+      throw new RuntimeException(
+              "Additional exam cutoff must be less than pass cutoff");
     }
     if (passCutOff >= creditCutoff) {
-      throw new RuntimeException("Pass cutoff must be less than credit cutoff");
+      throw new RuntimeException(
+              "Pass cutoff must be less than credit cutoff");
     }
     if (creditCutoff >= distinctionCutoff) {
-      throw new RuntimeException("Credit cutoff must be less than Distinction cutoff");
+      throw new RuntimeException(
+              "Credit cutoff must be less than Distinction cutoff");
     }
     if (distinctionCutoff >= highDistinctionCutOff) {
-      throw new RuntimeException("Distinction cutoff must be less than HighDistinction cutoff");
+      throw new RuntimeException(
+              "Distinction cutoff must be less than HighDistinction cutoff");
     }
 
   }
 
   /**
-   * checks that each assessment task has a valid result and returns a grade based on the combined value of all assessment tasks
+   * checks that each assessment task has a valid result
+   * and returns a grade based on the combined value of all assessment tasks
    * @param assignment1Mark The students mark for the first Assignment
    * @param assignment2Mark The students mark for the second Assignment
    * @param examMark The students final exam results
-   * @return A string containing the level of mark the student achieved, e.g. "HD" for a high distinction
+   * @return A string containing the level of mark the student achieved,
+   * e.g. "HD" for a high distinction
    */
-  public String getGrade(float assignment1Mark, float assignment2Mark, float examMark) {
+  public String getGrade(float assignment1Mark,
+                         float assignment2Mark,
+                         float examMark) {
 
     float totalMark = assignment1Mark + assignment2Mark + examMark;
 
     if (assignment1Mark < 0 || assignment1Mark > assignment1Weight_ ||
             assignment2Mark < 0 || assignment2Mark > assignment2Weight_ ||
             examMark < 0 || examMark > examWeight_) {
-      throw new RuntimeException("marks cannot be less than zero or greater than assessment weights");
+      throw new RuntimeException(
+              "marks cannot be less than zero or greater than" +
+                      " assessment weights");
     }
 
     if (totalMark < additionalExamCutOff_) {

@@ -11,7 +11,8 @@ public class UnitManager {
   private UnitMap unitMap_;
 
   /**
-   * checks if this unit manager has been initialised,if not initialized already the object is initialized
+   * checks if this unit manager has been initialised,
+   * if not initialized already the object is initialized
    * @return an initialised unit manager
    */
   public static UnitManager initializeUnitManager() {
@@ -45,7 +46,8 @@ public class UnitManager {
   private IUnit createUnit(String unitCode) {
     IUnit unit;
 
-    for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("unitTable").getChildren("unit"))
+    for (Element el : (List<Element>) XMLManager.getXML().getDocument()
+            .getRootElement().getChild("unitTable").getChildren("unit"))
       if (unitCode.equals(el.getAttributeValue("uid"))) {
         StudentUnitRecordList studentUnitRecordList;
         studentUnitRecordList = null;
@@ -79,7 +81,8 @@ public class UnitManager {
     IUnit unit;
 
     units = new UnitMap();
-    for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("unitTable").getChildren("unit")) {
+    for (Element el : (List<Element>) XMLManager.getXML().getDocument()
+            .getRootElement().getChild("unitTable").getChildren("unit")) {
 
       unit = new UnitProxy(el.getAttributeValue("uid"),
               el.getAttributeValue("name"));
