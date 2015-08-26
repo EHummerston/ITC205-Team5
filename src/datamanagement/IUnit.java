@@ -6,7 +6,7 @@ public interface IUnit {
     public String getUnitName();
 
     public float getPsCutoff();
-    public void  setPsCutoff(float cutoff);
+    public void  setPsCutoff1(float cutoff);
 
     public float getCrCutoff();
     public void  setCrCutoff(float cutoff);

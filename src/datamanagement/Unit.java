@@ -35,7 +35,7 @@ public class Unit implements IUnit {
 		return this.UN;
 	}
 
-	public void setPsCutoff(float cutoff) {
+	public void setPsCutoff1(float cutoff) {
 		this.co2 = cutoff;
 	}
 

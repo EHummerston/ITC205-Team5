@@ -20,8 +20,13 @@ public class UnitProxy implements IUnit {
             return this.unitName_;
     }
     
+<<<<<<< HEAD
     public void setPsCutoff(float cutoff) {
         unitManager.getUnit(unitCode_).setPsCutoff(cutoff);
+=======
+    public void setPsCutoff1(float cutoff) {
+        unitManager.getUnit(unitCode_).setPsCutoff1(cutoff);
+>>>>>>> parent of ee042d1... Fixes for Review 1
 	}
     
 	public float getPsCutoff() {
@@ -60,6 +65,7 @@ public class UnitProxy implements IUnit {
 		return unitManager.getUnit(unitCode_).getAeCutoff();
 	}
 	
+<<<<<<< HEAD
 	public String getGrade(float assignment1Mark, float assignment2Mark, float examMark) {
 		return unitManager.getUnit(unitCode_).getGrade(assignment1Mark, assignment2Mark, examMark);
 	}
@@ -70,6 +76,18 @@ public class UnitProxy implements IUnit {
 	
 	public IStudentUnitRecord getStudentRecord(int studentRecord) {
 		return unitManager.getUnit(unitCode_).getStudentRecord(studentRecord);
+=======
+	public String getGrade(float asg1, float asg2, float exam) {
+		return unitManager.getUnit(unitCode_).getGrade(asg1, asg2, exam);
+	}
+	
+	public void addStudentRecord(IStudentUnitRecord record) { 
+		unitManager.getUnit(unitCode_).addStudentRecord(record);
+	}
+	
+	public IStudentUnitRecord getStudentRecord(int s) {
+		return unitManager.getUnit(unitCode_).getStudentRecord(s);
+>>>>>>> parent of ee042d1... Fixes for Review 1
 	}
 	
 	public StudentUnitRecordList listStudentRecords() {
@@ -88,8 +106,13 @@ public class UnitProxy implements IUnit {
 		return unitManager.getUnit(unitCode_).getExamWeight();
 	}
 	
+<<<<<<< HEAD
 	public void setAssessmentWeights(int assignment1Weight, int assignment2Weight, int examWeight) {
 		unitManager.getUnit(unitCode_).setAssessmentWeights(assignment1Weight, assignment2Weight, examWeight);
+=======
+	public void setAssessmentWeights(int asg1, int asg2, int exam) {
+		unitManager.getUnit(unitCode_).setAssessmentWeights(asg1, asg2, exam);
+>>>>>>> parent of ee042d1... Fixes for Review 1
 	}
 
 }
