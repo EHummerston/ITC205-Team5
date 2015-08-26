@@ -2,13 +2,14 @@ package datamanagement;
 
 /**
  * Lists students
- * @author Norb
+ * @author jtulip
+ * @editor Norb C.T.
  *
  */
 
 public interface IStudentLister {
 
     public void clearStudents();
-    public void addStudent(IStudent iStudent);
+    public void addStudent(IStudent student);
     
 }
