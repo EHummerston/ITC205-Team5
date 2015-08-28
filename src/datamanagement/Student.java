@@ -25,7 +25,7 @@ public class Student
             studentRecord == null ? new StudentUnitRecordList() : studentRecord;
   }
 
-  public Integer getID() {
+  public Integer getStudentId() {
     return this.studentId_;
   }
 

@@ -10,7 +10,7 @@ implements IUnit {
 	public UnitProxy( String unitCode, String unitName ) {
 	    this.unitCode_ = unitCode;
 	    this.unitName_ = unitName;
-	    unitManager = UnitManager.initializeUnitManager();; 
+	    unitManager = UnitManager.initializeUnitManager();
 	}
 	
     public String getUnitCode() { 
@@ -40,8 +40,8 @@ implements IUnit {
 	public void setDiCutoff(float cutoff) {
 		unitManager.getUnit(unitCode_).setDiCutoff(cutoff);
 	}
-	    
-	public float getDiCuttoff() {
+
+  public float getDiCuttoff() {
 		return unitManager.getUnit(unitCode_).getDiCuttoff();
 	}
 	
@@ -61,8 +61,10 @@ implements IUnit {
 		return unitManager.getUnit(unitCode_).getAeCutoff();
 	}
 	
-	public String getGrade(float assignment1Mark, float assignment2Mark, float examMark) {
-		return unitManager.getUnit(unitCode_).getGrade(assignment1Mark, assignment2Mark, examMark);
+	public String getGrade(
+					float assignment1Mark, float assignment2Mark, float examMark) {
+		return unitManager.getUnit(unitCode_).getGrade(
+						assignment1Mark, assignment2Mark, examMark);
 	}
 	
 	public void addStudentRecord(IStudentUnitRecord studentUnitRecord) { 
@@ -89,8 +91,10 @@ implements IUnit {
 		return unitManager.getUnit(unitCode_).getExamWeight();
 	}
 	
-	public void setAssessmentWeights(int assignment1Weight, int assignment2Weight, int examWeight) {
-		unitManager.getUnit(unitCode_).setAssessmentWeights(assignment1Weight, assignment2Weight, examWeight);
+	public void setAssessmentWeights(
+					int assignment1Weight, int assignment2Weight, int examWeight) {
+		unitManager.getUnit(unitCode_).setAssessmentWeights(
+						assignment1Weight, assignment2Weight, examWeight);
 	}
 
 }

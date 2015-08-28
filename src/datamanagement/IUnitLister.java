@@ -10,7 +10,7 @@ package datamanagement;
 
 public interface IUnitLister {
 
-    public void clearUnits();
-    public void addUnit(IUnit unit);
+    void clearUnits();
+    void addUnit(IUnit unit);
 
 }
