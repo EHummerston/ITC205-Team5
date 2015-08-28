@@ -34,8 +34,7 @@ public class StudentProxy
   public void setLastName(String lastName) {
     studentList.getStudent(studentId_).setLastName(lastName);
   }
-
-
+    
   public void addUnitRecord(IStudentUnitRecord record) {
     studentList.getStudent(studentId_).addUnitRecord(record);
   }
@@ -43,7 +42,6 @@ public class StudentProxy
   public IStudentUnitRecord getUnitRecord(String unitCode) {
     return studentList.getStudent(studentId_).getUnitRecord(unitCode);
   }
-
 
   public StudentUnitRecordList getUnitRecords() {
     return studentList.getStudent(studentId_).getUnitRecords();
