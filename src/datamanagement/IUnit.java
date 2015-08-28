@@ -35,11 +35,11 @@ public interface IUnit
 
 
 
-  public float getHightDistinctionCutoff();
+  public float getHighDistinctionCutoff();
 
 
 
-  public void setHightDistinctionCutoff(float cutoff);
+  public void setHighDistinctionCutoff(float cutoff);
 
 
 

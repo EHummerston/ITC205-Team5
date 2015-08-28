@@ -42,7 +42,7 @@ public class CheckGradeCtl
     if (code.equals("NONE"))
       checkGradeUi_.setState2(false);
     else {
-      ListStudentsCTL lsCTL = new ListStudentsCTL();
+      ListStudentsCtl lsCTL = new ListStudentsCtl();
       lsCTL.listStudents(checkGradeUi_, code);
       currentUnitCode_ = code;
       checkGradeUi_.setState2(true);
@@ -82,7 +82,7 @@ public class CheckGradeCtl
 
   public String checkGrade(float f, float g, float h)
   {
-    IUnit u = UnitManager.UM().getUnit(currentUnitCode_);
+    IUnit u = UnitManager.initializeUnitManager().getUnit(currentUnitCode_);
     String s = u.getGrade(f, g, h);
     checkGradeUi_.setState4(true);
     checkGradeUi_.setState5(false);
@@ -107,13 +107,13 @@ public class CheckGradeCtl
   public void saveGrade(float asg1, float asg2, float exam)
   {
 
-    IUnit u = UnitManager.UM().getUnit(currentUnitCode_);
+    IUnit u = UnitManager.initializeUnitManager().getUnit(currentUnitCode_);
     IStudent s = StudentManager.get().getStudent(currentStudentId_);
 
     IStudentUnitRecord r = s.getUnitRecord(currentUnitCode_);
-    r.setAsg1(asg1);
-    r.setAsg2(asg2);
-    r.setExam(exam);
+    r.setAssignment1Mark(asg1);
+    r.setAssignment2Mark(asg2);
+    r.setExamMark(exam);
     StudentUnitRecordManager.instance().saveRecord(r);
     checkGradeUi_.setState4(true);
     checkGradeUi_.setState5(false);

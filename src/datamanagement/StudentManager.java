@@ -27,7 +27,7 @@ public class StudentManager {
   }
 
   private Element getStudentElement(Integer studentId) {
-    for (Element element : (List<Element>) XMLManager.getXML()
+    for (Element element : (List<Element>) XmlManager.getXmlManager()
             .getDocument().getRootElement().getChild("studentTable")
             .getChildren("student"))
       if (studentId.toString().equals(element.getAttributeValue("sid")))
@@ -52,8 +52,7 @@ public class StudentManager {
     }
     throw new RuntimeException("DBMD: createStudent : student not in file");
   }
-
-        for (Element el : (List<Element>) XmlManager.getXmlManager().getDocument().getRootElement().getChild("studentTable").getChildren("student")) 
+  
   private IStudent createStudentProxy(int studentId) {
     Element element = getStudentElement(studentId);
     if (element != null)

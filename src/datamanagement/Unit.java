@@ -72,11 +72,11 @@ public class Unit
     return this.distinctionCutOff_;
 	}
 
-	public void setHightDistinctionCutoff(float cutoff) {
+	public void setHighDistinctionCutoff(float cutoff) {
     this.highDistinctionCutOff_ = cutoff;
 	}
 
-	public float getHightDistinctionCutoff() {
+	public float getHighDistinctionCutoff() {
     return this.highDistinctionCutOff_;
 	}
 

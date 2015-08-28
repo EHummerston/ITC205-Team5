@@ -8,7 +8,7 @@ public class ListUnitsCtl
 
   public ListUnitsCtl()
   {
-    unitManager_ = UnitManager.UM();
+    unitManager_ = UnitManager.initializeUnitManager();
   }
 
 

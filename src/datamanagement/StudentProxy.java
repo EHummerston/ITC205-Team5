@@ -15,7 +15,7 @@ public class StudentProxy
     this.studentList = StudentManager.get();
   }
 
-  public int getStudentId() {
+  public Integer getStudentId() {
     return studentId_;
   }
 

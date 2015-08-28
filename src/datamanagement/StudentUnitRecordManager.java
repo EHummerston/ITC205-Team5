@@ -45,7 +45,7 @@ public class StudentUnitRecordManager {
   private IStudentUnitRecord createStudentUnitRecord(Integer studentCode,
                                                      String unitCode) {
     IStudentUnitRecord studentUnitRecord;
-    for (Element el : (List<Element>) XmlManager.getXML().getDocument()
+    for (Element el : (List<Element>) XmlManager.getXmlManager().getDocument()
             .getRootElement().getChild("studentUnitRecordTable")
             .getChildren("record")) {
       if (studentCode.toString().equals(el.getAttributeValue("sid")) &&
@@ -76,7 +76,7 @@ public class StudentUnitRecordManager {
       return studentUnitRecordList;
     }
     studentUnitRecordList = new StudentUnitRecordList();
-    for (Element el : (List<Element>) XMLManager.getXML().getDocument()
+    for (Element el : (List<Element>) XmlManager.getXmlManager().getDocument()
             .getRootElement().getChild("studentUnitRecordTable")
             .getChildren("record")) {
       if (unitCode.equals(el.getAttributeValue("uid")))
@@ -99,7 +99,7 @@ public class StudentUnitRecordManager {
     StudentUnitRecordList studentUnitRecordList = studentCodes_.get(studentID);
     if (studentUnitRecordList != null) return studentUnitRecordList;
     studentUnitRecordList = new StudentUnitRecordList();
-    for (Element el : (List<Element>) XMLManager.getXML().getDocument()
+    for (Element el : (List<Element>) XmlManager.getXmlManager().getDocument()
             .getRootElement().getChild("studentUnitRecordTable")
             .getChildren("record"))
       if (studentID.toString().equals(el.getAttributeValue("sid")))
@@ -117,7 +117,7 @@ public class StudentUnitRecordManager {
    * @param StudentUnitRecord - the student unit record to be saved
    */
   public void saveRecord(IStudentUnitRecord StudentUnitRecord) {
-    for (Element el : (List<Element>) XMLManager.getXML().getDocument()
+    for (Element el : (List<Element>) XmlManager.getXmlManager().getDocument()
             .getRootElement().getChild("studentUnitRecordTable")
             .getChildren("record")) {
       if (StudentUnitRecord.getStudentId().toString().equals(
@@ -131,7 +131,7 @@ public class StudentUnitRecordManager {
         el.setAttribute("exam", new Float(
                 StudentUnitRecord.getExamMark()).toString());
         //write out the XML file for continuous save
-        XmlManager.getXML().saveDocument();
+        XmlManager.getXmlManager().saveDocument();
         return;
       }
     }
