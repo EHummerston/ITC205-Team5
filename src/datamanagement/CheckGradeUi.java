@@ -13,17 +13,18 @@ public class CheckGradeUi
   extends javax.swing.JFrame
   implements IUnitLister, IStudentLister
 {
-  private CheckGradeCtl                    ctl_;
+  private CheckGradeCtl                    checkGradeCtl_;
   private javax.swing.DefaultComboBoxModel unitComboBoxModel_;
   private javax.swing.DefaultComboBoxModel studentComboBoxModel_;
-  private float                            mark1_, mark2_, mark3_;
+  private float                            assignment1Mark_, assignment2Mark_,
+    assignment3Mark_;
   private Integer                          studentId_;
 
 
 
   public CheckGradeUi(CheckGradeCtl ctl)
   {
-    this.ctl_ = ctl;
+    this.checkGradeCtl_ = ctl;
     unitComboBoxModel_ = new javax.swing.DefaultComboBoxModel(new String[0]);
     studentComboBoxModel_ = new javax.swing.DefaultComboBoxModel(new String[0]);
     initComponents();
@@ -374,7 +375,7 @@ public class CheckGradeUi
       if (cU.equals((String) jComboBox1.getItemAt(0))) {
         cU = "NONE";
       }
-      ctl_.unitSelected(cU);
+      checkGradeCtl_.unitSelected(cU);
     }
   }// GEN-LAST:event_jComboBox1ItemStateChanged
 
@@ -387,11 +388,11 @@ public class CheckGradeUi
     if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED) {
       if (cS.equals((String) jComboBox2.getItemAt(0))) {
         studentId_ = new Integer(0);
-        ctl_.studentSelected(studentId_);
+        checkGradeCtl_.studentSelected(studentId_);
       } else {
         studentId_ = new Integer(cS.split("\\s")[0]);
       }
-      ctl_.studentSelected(studentId_);
+      checkGradeCtl_.studentSelected(studentId_);
     }
   }// GEN-LAST:event_jComboBox2ItemStateChanged
 
@@ -399,12 +400,13 @@ public class CheckGradeUi
 
   private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)
   {// GEN-FIRST:event_jButton3ActionPerformed
-    mark1_ = new Float(jTextField1.getText()).floatValue();
-    mark2_ = new Float(jTextField2.getText()).floatValue();
-    mark3_ = new Float(jTextField3.getText()).floatValue();
+    assignment1Mark_ = new Float(jTextField1.getText()).floatValue();
+    assignment2Mark_ = new Float(jTextField2.getText()).floatValue();
+    assignment3Mark_ = new Float(jTextField3.getText()).floatValue();
     // lblErrMsg.setText("");
     try {
-      String s = ctl_.checkGrade(mark1_, mark2_, mark3_);
+      String s = checkGradeCtl_.checkGrade(assignment1Mark_, assignment2Mark_,
+        assignment3Mark_);
       jLabel5.setText(s);
     } catch (RuntimeException re) {
       jlabel6.setText(re.getMessage());
@@ -415,7 +417,7 @@ public class CheckGradeUi
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
   {// GEN-FIRST:event_jButton1ActionPerformed
-    ctl_.enableChangeMarks();
+    checkGradeCtl_.enableChangeMarks();
     jLabel5.setText("");
     // lblErrMsg.setText("");
   }// GEN-LAST:event_jButton1ActionPerformed
@@ -437,7 +439,7 @@ public class CheckGradeUi
     float exam = new Float(jTextField3.getText()).floatValue();
     jlabel6.setText("");
     try {
-      ctl_.saveGrade(asg1, asg2, exam);
+      checkGradeCtl_.saveGrade(asg1, asg2, exam);
       // jButton3ActionPerformed(null);
     } catch (RuntimeException re) {
       jlabel6.setText(re.getMessage());

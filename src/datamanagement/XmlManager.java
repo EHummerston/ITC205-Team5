@@ -1,18 +1,18 @@
 package datamanagement;
 
-import org.jdom.Document;
-import org.jdom.input.SAXBuilder;
 import java.io.FileWriter;
+import java.io.IOException;
+import org.jdom.Document;
+import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
-import java.io.IOException;
-import org.jdom.JDOMException;
 
 public class XmlManager
 {
   private static XmlManager self = null;
 
-  private Document          document_;
+  private Document document_;
 
 
 

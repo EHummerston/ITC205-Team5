@@ -11,51 +11,51 @@ public interface IUnit
 
 
 
-  public float getPsCutoff();
+  public float getPassCutoff();
 
 
 
-  public void setPsCutoff1(float cutoff);
+  public void setPassCutoff(float cutoff);
 
 
 
-  public float getCrCutoff();
+  public float getCreditCutoff();
 
 
 
-  public void setCrCutoff(float cutoff);
+  public void setCreditCutoff(float cutoff);
 
 
 
-  public float getDiCuttoff();
+  public float getDistinctionCuttoff();
 
 
 
-  public void setDiCutoff(float cutoff);
+  public void setDistinctionCutoff(float cutoff);
 
 
 
-  public float getHdCutoff();
+  public float getHightDistinctionCutoff();
 
 
 
-  public void setHdCutoff(float cutoff);
+  public void setHightDistinctionCutoff(float cutoff);
 
 
 
-  public float getAeCutoff();
+  public float getAdditionalExamCutoff();
 
 
 
-  public void setAeCutoff(float cutoff);
+  public void setAdditionalExamCutoff(float cutoff);
 
 
 
-  public int getAsg1Weight();
+  public int getAssignment1Weight();
 
 
 
-  public int getAsg2Weight();
+  public int getAssigment2Weight();
 
 
 

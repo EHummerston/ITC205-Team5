@@ -21,46 +21,22 @@ implements IUnit {
             return this.unitName_;
     }
     
-    public void setPsCutoff1(float cutoff) {
-        unitManager.getUnit(unitCode_).setPsCutoff1(cutoff);
+    public void setPassCutoff(float cutoff) {
+        um.getUnit(UC).setPassCutoff(cutoff);
+}
+public float getPassCutoff() {
+        return um.getUnit(UC).getPassCutoff();}
+    public void setCreditCutoff(float cutoff) {um.getUnit(UC).setCreditCutoff(cutoff);
     }
-    
-	public float getPsCutoff() {
-		return unitManager.getUnit(unitCode_).getPsCutoff();
-	}
-	
-	public void setCrCutoff(float cutoff) {
-		unitManager.getUnit(unitCode_).setCrCutoff(cutoff);
-	}
-	
-	public float getCrCutoff() {
-		return unitManager.getUnit(unitCode_).getCrCutoff();
-	}
-	
-	public void setDiCutoff(float cutoff) {
-		unitManager.getUnit(unitCode_).setDiCutoff(cutoff);
-	}
+    public float getCreditCutoff() {
+return um.getUnit(UC).getCreditCutoff();
+    }
 
-  public float getDiCuttoff() {
-		return unitManager.getUnit(unitCode_).getDiCuttoff();
-	}
-	
-	public void setHdCutoff(float cutoff) {
-	    unitManager.getUnit(unitCode_).setHdCutoff(cutoff);
-	}
-	
-	public float getHdCutoff() {
-	    return unitManager.getUnit(unitCode_).getHdCutoff();
-	}
-	
-	public void setAeCutoff(float cutoff) {
-		unitManager.getUnit(unitCode_).setAeCutoff(cutoff);
-	}
-	
-	public float getAeCutoff() {
-		return unitManager.getUnit(unitCode_).getAeCutoff();
-	}
-	
+public void setDistinctionCutoff(float cutoff) {um.getUnit(UC).setDistinctionCutoff(cutoff);}
+    public float getDistinctionCuttoff() {return um.getUnit(UC).getDistinctionCuttoff();}
+public void setHightDistinctionCutoff(float cutoff) {
+    um.getUnit(UC).setHightDistinctionCutoff(cutoff);}
+    public float getHightDistinctionCutoff() {
 	public String getGrade(
 					float assignment1Mark, float assignment2Mark, float examMark) {
 		return unitManager.getUnit(unitCode_).getGrade(
@@ -79,17 +55,6 @@ implements IUnit {
 	    return unitManager.getUnit(unitCode_).listStudentRecords();
 	}
 	
-	public int getAsg1Weight() {
-		return unitManager.getUnit(unitCode_).getAsg1Weight();
-	}
-	
-	public int getAsg2Weight() {
-		return unitManager.getUnit(unitCode_).getAsg2Weight();
-	}
-	
-	public int getExamWeight() {
-		return unitManager.getUnit(unitCode_).getExamWeight();
-	}
 	
 	public void setAssessmentWeights(
 					int assignment1Weight, int assignment2Weight, int examWeight) {
@@ -98,3 +63,16 @@ implements IUnit {
 	}
 
 }
+public int getAssignment1Weight() {
+	return um.getUnit(UC).getAssignment1Weight();
+}
+public int getAssigment2Weight() {
+	return um.getUnit(UC).getAssigment2Weight();
+}
+public int getExamWeight() {
+	return um.getUnit(UC).getExamWeight();
+}
+public void setAssessmentWeights(int asg1Wgt, int asg2Wgt, int examWgt) {
+	um.getUnit(UC).setAssessmentWeights(asg1Wgt, asg2Wgt, examWgt);
+	
+}}

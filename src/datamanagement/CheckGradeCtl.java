@@ -3,10 +3,10 @@ package datamanagement;
 public class CheckGradeCtl
 {
 
-  private CheckGradeUi CGUI;
-  private String       cuc              = null;
-  private Integer      currentStudentID = null;
-  private boolean      changed          = false;
+  private CheckGradeUi checkGradeUi_;
+  private String       currentUnitCode_  = null;
+  private Integer      currentStudentId_ = null;
+  private boolean      isComputable_     = false;
 
 
 
@@ -18,20 +18,20 @@ public class CheckGradeCtl
 
   public void execute()
   {
-    CGUI = new CheckGradeUi(this);
-    CGUI.setState1(false);
+    checkGradeUi_ = new CheckGradeUi(this);
+    checkGradeUi_.setState1(false);
 
-    CGUI.setState2(false);
-    CGUI.setState3(false);
-    CGUI.setState4(false);
-    CGUI.setState5(false);
-    CGUI.setState6(false);
-    CGUI.Refresh3();
+    checkGradeUi_.setState2(false);
+    checkGradeUi_.setState3(false);
+    checkGradeUi_.setState4(false);
+    checkGradeUi_.setState5(false);
+    checkGradeUi_.setState6(false);
+    checkGradeUi_.Refresh3();
 
     ListUnitsCtl luCTL = new ListUnitsCtl();
-    luCTL.listUnits(CGUI);
-    CGUI.setVisible(true);
-    CGUI.setState1(true);
+    luCTL.listUnits(checkGradeUi_);
+    checkGradeUi_.setVisible(true);
+    checkGradeUi_.setState1(true);
   }
 
 
@@ -40,40 +40,40 @@ public class CheckGradeCtl
   {
 
     if (code.equals("NONE"))
-      CGUI.setState2(false);
+      checkGradeUi_.setState2(false);
     else {
       ListStudentsCTL lsCTL = new ListStudentsCTL();
-      lsCTL.listStudents(CGUI, code);
-      cuc = code;
-      CGUI.setState2(true);
+      lsCTL.listStudents(checkGradeUi_, code);
+      currentUnitCode_ = code;
+      checkGradeUi_.setState2(true);
     }
-    CGUI.setState3(false);
+    checkGradeUi_.setState3(false);
   }
 
 
 
   public void studentSelected(Integer id)
   {
-    currentStudentID = id;
-    if (currentStudentID.intValue() == 0) {
-      CGUI.Refresh3();
-      CGUI.setState3(false);
-      CGUI.setState4(false);
-      CGUI.setState5(false);
-      CGUI.setState6(false);
+    currentStudentId_ = id;
+    if (currentStudentId_.intValue() == 0) {
+      checkGradeUi_.Refresh3();
+      checkGradeUi_.setState3(false);
+      checkGradeUi_.setState4(false);
+      checkGradeUi_.setState5(false);
+      checkGradeUi_.setState6(false);
     }
 
     else {
       IStudent s = StudentManager.get().getStudent(id);
 
-      IStudentUnitRecord r = s.getUnitRecord(cuc);
+      IStudentUnitRecord r = s.getUnitRecord(currentUnitCode_);
 
-      CGUI.setRecord(r);
-      CGUI.setState3(true);
-      CGUI.setState4(true);
-      CGUI.setState5(false);
-      CGUI.setState6(false);
-      changed = false;
+      checkGradeUi_.setRecord(r);
+      checkGradeUi_.setState3(true);
+      checkGradeUi_.setState4(true);
+      checkGradeUi_.setState5(false);
+      checkGradeUi_.setState6(false);
+      isComputable_ = false;
 
     }
   }
@@ -82,12 +82,12 @@ public class CheckGradeCtl
 
   public String checkGrade(float f, float g, float h)
   {
-    IUnit u = UnitManager.UM().getUnit(cuc);
+    IUnit u = UnitManager.UM().getUnit(currentUnitCode_);
     String s = u.getGrade(f, g, h);
-    CGUI.setState4(true);
-    CGUI.setState5(false);
-    if (changed) {
-      CGUI.setState6(true);
+    checkGradeUi_.setState4(true);
+    checkGradeUi_.setState5(false);
+    if (isComputable_) {
+      checkGradeUi_.setState6(true);
     }
     return s;
   }
@@ -96,10 +96,10 @@ public class CheckGradeCtl
 
   public void enableChangeMarks()
   {
-    CGUI.setState4(false);
-    CGUI.setState6(false);
-    CGUI.setState5(true);
-    changed = true;
+    checkGradeUi_.setState4(false);
+    checkGradeUi_.setState6(false);
+    checkGradeUi_.setState5(true);
+    isComputable_ = true;
   }
 
 
@@ -107,16 +107,16 @@ public class CheckGradeCtl
   public void saveGrade(float asg1, float asg2, float exam)
   {
 
-    IUnit u = UnitManager.UM().getUnit(cuc);
-    IStudent s = StudentManager.get().getStudent(currentStudentID);
+    IUnit u = UnitManager.UM().getUnit(currentUnitCode_);
+    IStudent s = StudentManager.get().getStudent(currentStudentId_);
 
-    IStudentUnitRecord r = s.getUnitRecord(cuc);
+    IStudentUnitRecord r = s.getUnitRecord(currentUnitCode_);
     r.setAsg1(asg1);
     r.setAsg2(asg2);
     r.setExam(exam);
     StudentUnitRecordManager.instance().saveRecord(r);
-    CGUI.setState4(true);
-    CGUI.setState5(false);
-    CGUI.setState6(false);
+    checkGradeUi_.setState4(true);
+    checkGradeUi_.setState5(false);
+    checkGradeUi_.setState6(false);
   }
 }

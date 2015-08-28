@@ -38,83 +38,83 @@ public class Unit
     this.setAssessmentWeights(assignment1Weight, assignment2Weight, examWeight);
     studentUnitRecordList_ = studentUnitRecordList ==
             null ? new StudentUnitRecordList() : studentUnitRecordList;
-  }
+	}
 
-  public String getUnitCode() {
+	public String getUnitCode() {
     return this.unitCode_;
-  }
+	}
 
-  public String getUnitName() {
+	public String getUnitName() {
     return this.unitName_;
-  }
+	}
 
-  public void setPsCutoff1(float cutoff) {
+	public void setPassCutoff(float cutoff) {
     this.passCutOff_ = cutoff;
-  }
+	}
 
-  public float getPsCutoff() {
+	public float getPassCutoff() {
     return this.passCutOff_;
-  }
+	}
 
-  public void setCrCutoff(float cutoff) {
+	public void setCreditCutoff(float cutoff) {
     this.creditCutOff_ = cutoff;
-  }
+	}
 
-  public float getCrCutoff() {
+	public float getCreditCutoff() {
     return this.creditCutOff_;
-  }
+	}
 
-  public void setDiCutoff(float cutoff) {
+	public void setDistinctionCutoff(float cutoff) {
     this.distinctionCutOff_ = cutoff;
-  }
+	}
 
-  public float getDiCuttoff() {
+	public float getDistinctionCuttoff() {
     return this.distinctionCutOff_;
-  }
+	}
 
-  public void setHdCutoff(float cutoff) {
+	public void setHightDistinctionCutoff(float cutoff) {
     this.highDistinctionCutOff_ = cutoff;
-  }
+	}
 
-  public float getHdCutoff() {
+	public float getHightDistinctionCutoff() {
     return this.highDistinctionCutOff_;
-  }
+	}
 
-  public void setAeCutoff(float cutoff) {
+	public void setAdditionalExamCutoff(float cutoff) {
     this.additionalExamCutOff_ = cutoff;
-  }
+	}
 
-  public float getAeCutoff() {
+	public float getAdditionalExamCutoff() {
     return this.additionalExamCutOff_;
-  }
+	}
 
-  public void addStudentRecord(IStudentUnitRecord record) {
+	public void addStudentRecord(IStudentUnitRecord record) {
     studentUnitRecordList_.add(record);
-  }
+	}
 
-  public IStudentUnitRecord getStudentRecord(int studentID) {
+	public IStudentUnitRecord getStudentRecord(int studentID) {
     for (IStudentUnitRecord r : studentUnitRecordList_) {
       if (r.getStudentId() == studentID)
-        return r;
-    }
-    return null;
-  }
+				return r;
+		}
+		return null;
+	}
 
-  public StudentUnitRecordList listStudentRecords() {
+	public StudentUnitRecordList listStudentRecords() {
     return studentUnitRecordList_;
-  }
+	}
 
-  public int getAsg1Weight() {
+	public int getAssignment1Weight() {
     return assignment1Weight_;
-  }
+	}
 
-  public int getAsg2Weight() {
+	public int getAssigment2Weight() {
     return assignment2Weight_;
-  }
+	}
 
-  public int getExamWeight() {
+	public int getExamWeight() {
     return examWeight_;
-  }
+	}
 
   /**
    * Sets the weights of each assessment task
@@ -133,13 +133,13 @@ public class Unit
     }
 
     if (assignment1Weight + assignment2Weight + examWeight != 100) {
-      throw new RuntimeException("Assessment weights must add to 100");
-    }
+			throw new RuntimeException("Assessment weights must add to 100");
+		}
 
     this.assignment1Weight_ = assignment1Weight;
     this.assignment2Weight_ = assignment2Weight;
     this.examWeight_ = examWeight;
-  }
+	}
 
   /**
    * Sets all cut Off values for each grade that the unit has,
@@ -159,26 +159,26 @@ public class Unit
             additionalExamCutOff < 0 || additionalExamCutOff > 100) {
       throw new RuntimeException(
               "Assessment cutoff cant be less than zero or greater than 100");
-    }
+		}
 
     if (additionalExamCutOff >= passCutOff) {
       throw new RuntimeException(
               "Additional exam cutoff must be less than pass cutoff");
-    }
+		}
     if (passCutOff >= creditCutoff) {
       throw new RuntimeException(
               "Pass cutoff must be less than credit cutoff");
-    }
+		}
     if (creditCutoff >= distinctionCutoff) {
       throw new RuntimeException(
               "Credit cutoff must be less than Distinction cutoff");
-    }
+		}
     if (distinctionCutoff >= highDistinctionCutOff) {
       throw new RuntimeException(
               "Distinction cutoff must be less than HighDistinction cutoff");
-    }
+		}
 
-  }
+	}
 
   /**
    * checks that each assessment task has a valid result
@@ -201,21 +201,21 @@ public class Unit
       throw new RuntimeException(
               "marks cannot be less than zero or greater than" +
                       " assessment weights");
-    }
+		}
 
     if (totalMark < additionalExamCutOff_) {
-      return "FL";
+			return "FL";
     } else if (totalMark < passCutOff_)
-      return "AE";
+			return "AE";
     else if (totalMark < creditCutOff_)
-      return "PS";
+			return "PS";
     else if (totalMark < distinctionCutOff_)
-      return "CR";
+			return "CR";
     else if (totalMark < highDistinctionCutOff_)
-      return "DI";
-    else
-      return "HD";
-  }
+			return "DI";
+		else
+			return "HD";
+	}
 
 
 }
